@@ -43,7 +43,7 @@ export default function HomePage() {
             FIGHT WITH STYLE
           </h1>
           <p className="text-xl md:text-2xl text-white/80 mb-8 font-light">
-            Premium kickboxing and Muay Thai apparel for champions
+            Premium Combat Apparel for Champions
           </p>
           <Link
             to="/shop"

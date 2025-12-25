@@ -1,5 +1,5 @@
 import { Link } from "react-router";
-import { ShoppingCart, Menu } from "lucide-react";
+import { ShoppingCart, Menu, ChevronDown } from "lucide-react";
 import { useState } from "react";
 
 interface HeaderProps {
@@ -8,6 +8,7 @@ interface HeaderProps {
 
 export default function Header({ cartItemCount = 0 }: HeaderProps) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [collectionsOpen, setCollectionsOpen] = useState(false);
 
   return (
     <header className="sticky top-0 z-50 bg-black/95 backdrop-blur-sm border-b border-white/10">
@@ -16,9 +17,9 @@ export default function Header({ cartItemCount = 0 }: HeaderProps) {
           {/* Logo */}
           <Link to="/" className="flex items-center space-x-2">
             <div className="text-2xl font-bold bg-gradient-to-r from-red-500 to-orange-500 bg-clip-text text-transparent">
-              FAIZAN
+              COMBAT
             </div>
-            <div className="text-sm text-white/60 font-light">APPAREL</div>
+            <div className="text-sm text-white/60 font-light">CULTURE</div>
           </Link>
 
           {/* Desktop Navigation */}
@@ -35,30 +36,64 @@ export default function Header({ cartItemCount = 0 }: HeaderProps) {
             >
               Shop
             </Link>
-            <Link
-              to="/shop?category=shorts"
-              className="text-white/80 hover:text-white transition-colors font-medium"
+            
+            {/* Kixx Collections Dropdown */}
+            <div 
+              className="relative" 
+              onMouseEnter={() => setCollectionsOpen(true)}
+              onMouseLeave={() => setCollectionsOpen(false)}
             >
-              Shorts
-            </Link>
-            <Link
-              to="/shop?category=gloves"
-              className="text-white/80 hover:text-white transition-colors font-medium"
-            >
-              Gloves
-            </Link>
-            <Link
-              to="/shop?category=tops"
-              className="text-white/80 hover:text-white transition-colors font-medium"
-            >
-              Tops
-            </Link>
-            <Link
-              to="/shop?category=kixx-equipment"
-              className="text-white/80 hover:text-white transition-colors font-medium"
-            >
-              Kixx
-            </Link>
+              <button
+                onClick={() => setCollectionsOpen(!collectionsOpen)}
+                className="flex items-center space-x-1 text-white/80 hover:text-white transition-colors font-medium"
+              >
+                <span>Kixx Collections</span>
+                <ChevronDown className={`w-4 h-4 transition-transform ${collectionsOpen ? 'rotate-180' : ''}`} />
+              </button>
+              
+              {collectionsOpen && (
+                <div className="absolute top-full left-0 mt-2 w-56 bg-black/95 backdrop-blur-sm border border-white/10 rounded-lg shadow-xl z-50">
+                  <div className="py-2">
+                    <Link
+                      to="/shop?collection=kixx-boxing"
+                      className="block px-4 py-2 text-white/80 hover:text-white hover:bg-white/5 transition-colors"
+                      onClick={() => setCollectionsOpen(false)}
+                    >
+                      Boxing Collection
+                    </Link>
+                    <Link
+                      to="/shop?collection=kixx-muay-thai"
+                      className="block px-4 py-2 text-white/80 hover:text-white hover:bg-white/5 transition-colors"
+                      onClick={() => setCollectionsOpen(false)}
+                    >
+                      Muay Thai Collection
+                    </Link>
+                    <Link
+                      to="/shop?collection=kixx-training"
+                      className="block px-4 py-2 text-white/80 hover:text-white hover:bg-white/5 transition-colors"
+                      onClick={() => setCollectionsOpen(false)}
+                    >
+                      Training Collection
+                    </Link>
+                    <Link
+                      to="/shop?collection=kixx-protection"
+                      className="block px-4 py-2 text-white/80 hover:text-white hover:bg-white/5 transition-colors"
+                      onClick={() => setCollectionsOpen(false)}
+                    >
+                      Protection Collection
+                    </Link>
+                    <Link
+                      to="/shop?collection=kixx-mma"
+                      className="block px-4 py-2 text-white/80 hover:text-white hover:bg-white/5 transition-colors"
+                      onClick={() => setCollectionsOpen(false)}
+                    >
+                      MMA Collection
+                    </Link>
+                  </div>
+                </div>
+              )}
+            </div>
+            
           </nav>
 
           {/* Cart Icon */}
@@ -101,34 +136,47 @@ export default function Header({ cartItemCount = 0 }: HeaderProps) {
               >
                 Shop
               </Link>
-              <Link
-                to="/shop?category=shorts"
-                className="text-white/80 hover:text-white transition-colors font-medium py-2"
-                onClick={() => setMobileMenuOpen(false)}
-              >
-                Shorts
-              </Link>
-              <Link
-                to="/shop?category=gloves"
-                className="text-white/80 hover:text-white transition-colors font-medium py-2"
-                onClick={() => setMobileMenuOpen(false)}
-              >
-                Gloves
-              </Link>
-              <Link
-                to="/shop?category=tops"
-                className="text-white/80 hover:text-white transition-colors font-medium py-2"
-                onClick={() => setMobileMenuOpen(false)}
-              >
-                Tops
-              </Link>
-              <Link
-                to="/shop?category=kixx-equipment"
-                className="text-white/80 hover:text-white transition-colors font-medium py-2"
-                onClick={() => setMobileMenuOpen(false)}
-              >
-                Kixx
-              </Link>
+              
+              {/* Mobile Kixx Collections */}
+              <div className="border-l-2 border-red-500 pl-4 ml-2">
+                <div className="text-white/60 text-sm font-semibold mb-2">Kixx Collections</div>
+                <Link
+                  to="/shop?collection=kixx-boxing"
+                  className="block text-white/70 hover:text-white transition-colors py-1 text-sm"
+                  onClick={() => setMobileMenuOpen(false)}
+                >
+                  Boxing Collection
+                </Link>
+                <Link
+                  to="/shop?collection=kixx-muay-thai"
+                  className="block text-white/70 hover:text-white transition-colors py-1 text-sm"
+                  onClick={() => setMobileMenuOpen(false)}
+                >
+                  Muay Thai Collection
+                </Link>
+                <Link
+                  to="/shop?collection=kixx-training"
+                  className="block text-white/70 hover:text-white transition-colors py-1 text-sm"
+                  onClick={() => setMobileMenuOpen(false)}
+                >
+                  Training Collection
+                </Link>
+                <Link
+                  to="/shop?collection=kixx-protection"
+                  className="block text-white/70 hover:text-white transition-colors py-1 text-sm"
+                  onClick={() => setMobileMenuOpen(false)}
+                >
+                  Protection Collection
+                </Link>
+                <Link
+                  to="/shop?collection=kixx-mma"
+                  className="block text-white/70 hover:text-white transition-colors py-1 text-sm"
+                  onClick={() => setMobileMenuOpen(false)}
+                >
+                  MMA Collection
+                </Link>
+              </div>
+              
             </nav>
           </div>
         )}

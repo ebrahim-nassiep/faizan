@@ -6,26 +6,45 @@ import ProductCard from "@/react-app/components/ProductCard";
 import { useCart } from "@/react-app/hooks/useCart";
 import type { Product, Category } from "@/shared/types";
 
+interface Collection {
+  id: number;
+  name: string;
+  slug: string;
+  description: string;
+  image_url: string;
+  is_featured: boolean;
+}
+
 export default function ShopPage() {
   const [searchParams, setSearchParams] = useSearchParams();
   const [products, setProducts] = useState<Product[]>([]);
   const [categories, setCategories] = useState<Category[]>([]);
+  const [collections, setCollections] = useState<Collection[]>([]);
   const [loading, setLoading] = useState(true);
   const { totalItems } = useCart();
 
   const categorySlug = searchParams.get("category") || "";
+  const collectionSlug = searchParams.get("collection") || "";
 
   useEffect(() => {
     fetch("/api/categories")
       .then((res) => res.json())
       .then((data) => setCategories(data));
+      
+    fetch("/api/collections")
+      .then((res) => res.json())
+      .then((data) => setCollections(data));
   }, []);
 
   useEffect(() => {
     setLoading(true);
-    const url = categorySlug
-      ? `/api/products?category=${categorySlug}`
-      : "/api/products";
+    let url = "/api/products";
+    
+    if (categorySlug) {
+      url = `/api/products?category=${categorySlug}`;
+    } else if (collectionSlug) {
+      url = `/api/products?collection=${collectionSlug}`;
+    }
 
     fetch(url)
       .then((res) => res.json())
@@ -33,9 +52,10 @@ export default function ShopPage() {
         setProducts(data);
         setLoading(false);
       });
-  }, [categorySlug]);
+  }, [categorySlug, collectionSlug]);
 
   const currentCategory = categories.find((c) => c.slug === categorySlug);
+  const currentCollection = collections.find((c) => c.slug === collectionSlug);
 
   return (
     <div className="min-h-screen bg-black">
@@ -45,38 +65,77 @@ export default function ShopPage() {
         {/* Header */}
         <div className="mb-12">
           <h1 className="text-4xl md:text-5xl font-bold text-white mb-4">
-            {currentCategory ? currentCategory.name : "All Products"}
+            {currentCollection 
+              ? currentCollection.name 
+              : currentCategory 
+              ? currentCategory.name 
+              : "All Products"}
           </h1>
-          {currentCategory && (
+          {currentCollection && (
+            <p className="text-white/60 text-lg">{currentCollection.description}</p>
+          )}
+          {currentCategory && !currentCollection && (
             <p className="text-white/60 text-lg">{currentCategory.description}</p>
           )}
         </div>
 
-        {/* Category Filter */}
-        <div className="mb-8 flex flex-wrap gap-3">
-          <button
-            onClick={() => setSearchParams({})}
-            className={`px-6 py-2 rounded-lg font-medium transition-all ${
-              !categorySlug
-                ? "bg-red-500 text-white"
-                : "bg-white/10 text-white/60 hover:bg-white/20"
-            }`}
-          >
-            All Products
-          </button>
-          {categories.map((category) => (
+        {/* Filters */}
+        <div className="mb-8 space-y-4">
+          {/* All Products Button */}
+          <div className="flex flex-wrap gap-3">
             <button
-              key={category.id}
-              onClick={() => setSearchParams({ category: category.slug })}
+              onClick={() => setSearchParams({})}
               className={`px-6 py-2 rounded-lg font-medium transition-all ${
-                categorySlug === category.slug
+                !categorySlug && !collectionSlug
                   ? "bg-red-500 text-white"
                   : "bg-white/10 text-white/60 hover:bg-white/20"
               }`}
             >
-              {category.name}
+              All Products
             </button>
-          ))}
+          </div>
+          
+          {/* Kixx Collections */}
+          {collections.length > 0 && (
+            <div>
+              <h3 className="text-white/80 font-semibold mb-3 text-sm">Kixx Collections</h3>
+              <div className="flex flex-wrap gap-3">
+                {collections.map((collection) => (
+                  <button
+                    key={collection.id}
+                    onClick={() => setSearchParams({ collection: collection.slug })}
+                    className={`px-4 py-2 rounded-lg font-medium transition-all text-sm ${
+                      collectionSlug === collection.slug
+                        ? "bg-red-500 text-white"
+                        : "bg-white/10 text-white/60 hover:bg-white/20"
+                    }`}
+                  >
+                    {collection.name.replace('Kixx ', '')}
+                  </button>
+                ))}
+              </div>
+            </div>
+          )}
+          
+          {/* Categories */}
+          <div>
+            <h3 className="text-white/80 font-semibold mb-3 text-sm">Categories</h3>
+            <div className="flex flex-wrap gap-3">
+              {categories.map((category) => (
+                <button
+                  key={category.id}
+                  onClick={() => setSearchParams({ category: category.slug })}
+                  className={`px-4 py-2 rounded-lg font-medium transition-all text-sm ${
+                    categorySlug === category.slug
+                      ? "bg-red-500 text-white"
+                      : "bg-white/10 text-white/60 hover:bg-white/20"
+                  }`}
+                >
+                  {category.name}
+                </button>
+              ))}
+            </div>
+          </div>
         </div>
 
         {/* Products Grid */}

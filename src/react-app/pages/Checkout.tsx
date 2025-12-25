@@ -117,7 +117,7 @@ function OtherPaymentForm({
             </div>
             <div className="flex justify-between">
               <span className="text-white/60">Account Name:</span>
-              <span className="text-white font-medium">Faizan Apparel</span>
+              <span className="text-white font-medium">Combat Culture</span>
             </div>
             <div className="flex justify-between">
               <span className="text-white/60">Account Number:</span>

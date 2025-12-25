@@ -12,10 +12,18 @@ app.get("/api/categories", async (c) => {
   return c.json(categories.results);
 });
 
+// Collections API
+app.get("/api/collections", async (c) => {
+  const db = c.env.DB;
+  const collections = await db.prepare("SELECT * FROM collections ORDER BY sort_order, name").all();
+  return c.json(collections.results);
+});
+
 // Products API
 app.get("/api/products", async (c) => {
   const db = c.env.DB;
   const categorySlug = c.req.query("category");
+  const collectionSlug = c.req.query("collection");
   const featured = c.req.query("featured");
   
   let query = "SELECT * FROM products";
@@ -24,6 +32,14 @@ app.get("/api/products", async (c) => {
   if (categorySlug) {
     query += " WHERE category_id = (SELECT id FROM categories WHERE slug = ?)";
     params.push(categorySlug);
+  } else if (collectionSlug) {
+    query += ` WHERE id IN (
+      SELECT cp.product_id 
+      FROM collection_products cp 
+      JOIN collections c ON cp.collection_id = c.id 
+      WHERE c.slug = ?
+    )`;
+    params.push(collectionSlug);
   } else if (featured === "true") {
     query += " WHERE is_featured = 1";
   }

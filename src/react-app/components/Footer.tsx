@@ -8,35 +8,35 @@ export default function Footer() {
           {/* Brand */}
           <div>
             <div className="text-2xl font-bold bg-gradient-to-r from-red-500 to-orange-500 bg-clip-text text-transparent mb-4">
-              FAIZAN APPAREL
+              COMBAT CULTURE
             </div>
             <p className="text-white/60 text-sm">
-              Premium kickboxing and Muay Thai apparel for champions
+              Premium martial arts gear and apparel for fighters
             </p>
           </div>
 
-          {/* Shop */}
+          {/* Kixx Collections */}
           <div>
-            <h3 className="text-white font-semibold mb-4">Shop</h3>
+            <h3 className="text-white font-semibold mb-4">Kixx Collections</h3>
             <ul className="space-y-2 text-white/60 text-sm">
               <li>
-                <a href="/shop?category=shorts" className="hover:text-white transition-colors">
-                  Shorts
+                <a href="/shop?collection=kixx-boxing" className="hover:text-white transition-colors">
+                  Boxing Collection
                 </a>
               </li>
               <li>
-                <a href="/shop?category=gloves" className="hover:text-white transition-colors">
-                  Gloves
+                <a href="/shop?collection=kixx-muay-thai" className="hover:text-white transition-colors">
+                  Muay Thai Collection
                 </a>
               </li>
               <li>
-                <a href="/shop?category=tops" className="hover:text-white transition-colors">
-                  Tops
+                <a href="/shop?collection=kixx-training" className="hover:text-white transition-colors">
+                  Training Collection
                 </a>
               </li>
               <li>
-                <a href="/shop?category=shin-guards" className="hover:text-white transition-colors">
-                  Shin Guards
+                <a href="/shop?collection=kixx-protection" className="hover:text-white transition-colors">
+                  Protection Collection
                 </a>
               </li>
             </ul>
@@ -96,7 +96,7 @@ export default function Footer() {
         </div>
 
         <div className="border-t border-white/10 mt-8 pt-8 text-center text-white/40 text-sm">
-          © {new Date().getFullYear()} Faizan Apparel. All rights reserved.
+          © {new Date().getFullYear()} Combat Culture. All rights reserved.
         </div>
       </div>
     </footer>
