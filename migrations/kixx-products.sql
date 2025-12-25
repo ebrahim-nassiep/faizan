@@ -1,0 +1,34 @@
+-- Kixx Fighgear Catalog Products with 30% Markup
+-- Generated from PDF catalog extraction
+-- Pricing includes 30% markup from wholesale
+
+INSERT INTO products (category_id, name, slug, description, price, image_url, images, sizes, colors, is_featured, stock_quantity) VALUES 
+(1, 'Kixx Professional Boxing Gloves - Premium Leather', 'kixx-pro-boxing-gloves-leather', 'Professional grade leather boxing gloves with superior padding and wrist support. Perfect for training and competition.', 1105.0, 'https://images.unsplash.com/photo-1544551763-46a013bb70d5?w=400', '["https://images.unsplash.com/photo-1544551763-46a013bb70d5?w=400"]', '["10oz", "12oz", "14oz", "16oz"]', '["Black", "Red", "Blue", "White"]', 1, 30),
+
+(1, 'Kixx Training Boxing Gloves - Synthetic', 'kixx-training-boxing-gloves-synthetic', 'Durable synthetic boxing gloves ideal for regular training. Great value with excellent protection.', 546.0, 'https://images.unsplash.com/photo-1549719386-74dfcbf7dbed?w=400', '["https://images.unsplash.com/photo-1549719386-74dfcbf7dbed?w=400"]', '["10oz", "12oz", "14oz", "16oz"]', '["Black", "Blue", "Red"]', 0, 45),
+
+(2, 'Kixx Heavy Bag - 120lbs Professional', 'kixx-heavy-bag-120lbs', 'Professional quality heavy bag filled with high-density materials. Durable synthetic leather construction.', 2405.0, 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=400', '["https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=400"]', '["120lbs"]', '["Black", "Red"]', 1, 12),
+
+(2, 'Kixx Speed Bag - Professional Grade', 'kixx-speed-bag-professional', 'High-quality speed bag for improving hand-eye coordination and boxing speed. Durable construction.', 494.0, 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=400&fit=crop&crop=center', '["https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=400&fit=crop&crop=center"]', '["Standard"]', '["Black", "Red"]', 0, 25),
+
+(2, 'Kixx Focus Pads - Curved Design', 'kixx-focus-pads-curved', 'Ergonomically designed focus pads with curved surface for optimal training. High-impact absorption.', 676.0, 'https://images.unsplash.com/photo-1544551763-46a013bb70d5?w=400&fit=crop&crop=center', '["https://images.unsplash.com/photo-1544551763-46a013bb70d5?w=400&fit=crop&crop=center"]', '["Standard"]', '["Black", "Red", "Blue"]', 0, 20),
+
+(3, 'Kixx Muay Thai Shorts - Traditional', 'kixx-muay-thai-shorts-traditional', 'Authentic Muay Thai shorts with traditional design and lightweight fabric. Perfect for training and competition.', 364.0, 'https://images.unsplash.com/photo-1509631179647-0177331693ae?w=400', '["https://images.unsplash.com/photo-1509631179647-0177331693ae?w=400"]', '["S", "M", "L", "XL", "XXL"]', '["Red", "Blue", "Black", "White", "Green"]', 1, 50),
+
+(3, 'Kixx Boxing T-Shirt - Performance Fabric', 'kixx-boxing-tshirt-performance', 'High-performance training t-shirt with moisture-wicking technology. Comfortable for intense training sessions.', 234.0, 'https://images.unsplash.com/photo-1509631179647-0177331693ae?w=400&fit=crop&crop=center', '["https://images.unsplash.com/photo-1509631179647-0177331693ae?w=400&fit=crop&crop=center"]', '["S", "M", "L", "XL", "XXL"]', '["Black", "White", "Gray", "Blue"]', 0, 60),
+
+(4, 'Kixx Headgear - Competition Grade', 'kixx-headgear-competition', 'Professional headgear with excellent protection and visibility. Lightweight design for comfort during sparring.', 845.0, 'https://images.unsplash.com/photo-1549719386-74dfcbf7dbed?w=400&fit=crop&crop=center', '["https://images.unsplash.com/photo-1549719386-74dfcbf7dbed?w=400&fit=crop&crop=center"]', '["S", "M", "L", "XL"]', '["Black", "Red", "Blue", "White"]', 0, 18),
+
+(4, 'Kixx Shin Guards - Premium Protection', 'kixx-shin-guards-premium', 'High-quality shin guards with superior protection for Muay Thai and kickboxing. Secure strapping system.', 624.0, 'https://images.unsplash.com/photo-1549719386-74dfcbf7dbed?w=400&crop=entropy&cs=tinysrgb', '["https://images.unsplash.com/photo-1549719386-74dfcbf7dbed?w=400&crop=entropy&cs=tinysrgb"]', '["S", "M", "L", "XL"]', '["Black", "Blue", "Red"]', 1, 22),
+
+(2, 'Kixx Boxing Wraps - Cotton Blend', 'kixx-boxing-wraps-cotton', 'Professional boxing hand wraps made from cotton blend. Essential protection for hands and wrists.', 110.5, 'https://images.unsplash.com/photo-1544551763-46a013bb70d5?w=400&crop=entropy&cs=tinysrgb', '["https://images.unsplash.com/photo-1544551763-46a013bb70d5?w=400&crop=entropy&cs=tinysrgb"]', '["180cm"]', '["Black", "Red", "Blue", "White"]', 0, 80),
+
+(2, 'Kixx MMA Gloves - Open Finger', 'kixx-mma-gloves-open-finger', 'Professional MMA training gloves with open finger design. Excellent for grappling and striking.', 546.0, 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=400&crop=entropy&cs=tinysrgb', '["https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=400&crop=entropy&cs=tinysrgb"]', '["S", "M", "L", "XL"]', '["Black", "Red"]', 0, 35),
+
+(2, 'Kixx Kick Shield - Heavy Duty', 'kixx-kick-shield-heavy-duty', 'Professional kick shield for training powerful kicks. Reinforced construction with comfortable grip handles.', 975.0, 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=400&crop=entropy', '["https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=400&crop=entropy"]', '["Standard"]', '["Black", "Red"]', 0, 15),
+
+(3, 'Kixx Boxing Boots - Professional', 'kixx-boxing-boots-professional', 'Professional boxing boots with ankle support and non-slip sole. Lightweight design for optimal performance.', 1196.0, 'https://images.unsplash.com/photo-1509631179647-0177331693ae?w=400&crop=entropy', '["https://images.unsplash.com/photo-1509631179647-0177331693ae?w=400&crop=entropy"]', '["38", "39", "40", "41", "42", "43", "44", "45"]', '["Black", "White", "Red"]', 0, 25),
+
+(4, 'Kixx Groin Guard - Competition', 'kixx-groin-guard-competition', 'Professional groin protection for sparring and competition. Comfortable fit with secure strapping.', 416.0, 'https://images.unsplash.com/photo-1549719386-74dfcbf7dbed?w=400&crop=faces&cs=tinysrgb', '["https://images.unsplash.com/photo-1549719386-74dfcbf7dbed?w=400&crop=faces&cs=tinysrgb"]', '["S", "M", "L", "XL"]', '["Black"]', 0, 30),
+
+(2, 'Kixx Training Bag Gloves', 'kixx-training-bag-gloves', 'Specialized bag gloves for heavy bag training. Extra padding and wrist support for intense sessions.', 494.0, 'https://images.unsplash.com/photo-1544551763-46a013bb70d5?w=400&crop=faces&cs=tinysrgb', '["https://images.unsplash.com/photo-1544551763-46a013bb70d5?w=400&crop=faces&cs=tinysrgb"]', '["S", "M", "L", "XL"]', '["Black", "Red"]', 0, 40);

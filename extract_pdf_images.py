@@ -83,7 +83,7 @@ def extract_images_from_pdf(pdf_path, output_dir="extracted_images"):
     return page_images, image_count
 
 if __name__ == "__main__":
-    pdf_file = "TGC - INDOOR.pdf"
+    pdf_file = "Kixx Fighgear catalogue 2025 compressed (2).pdf"
     
     if os.path.exists(pdf_file):
         page_images, total_count = extract_images_from_pdf(pdf_file)
