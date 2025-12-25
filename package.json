@@ -41,6 +41,7 @@
     "cf-typegen": "wrangler types",
     "check": "tsc && vite build && wrangler deploy --dry-run",
     "dev": "vite",
+    "start": "wrangler pages dev ./dist --port 8080",
     "lint": "eslint ."
   }
 }
