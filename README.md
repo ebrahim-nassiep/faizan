@@ -1,4 +1,4 @@
-## Faizan Apparel
+## combat culture 
 
 
 To run the devserver:
